@@ -1,0 +1,205 @@
+/*-------------------------------------------
+1. A href Link
+-------------------------------------------*/
+
+a {
+  color: $color-black; transition: .3s color ease, .3s background-color ease, .3s box-shadow ease;
+  &:hover, &:focus, &:active {
+    outline: none !important; text-decoration: none;
+  }
+  &:hover {
+    color: inherit;
+  }
+  &.icon {
+    i {
+      color: $color-default; margin-right: 1rem; font-size: 1.2rem;
+    }
+  }
+  i {
+    margin-left: .5rem; margin-right: .5rem;
+  }
+  .appendix {
+    opacity: .4; margin-left: .5rem;
+  }
+  &.link {
+    color: $color-default;
+  }
+  &.nav-link {
+    &.active {
+      color: $color-default;
+      i {
+        color: $color-default; opacity: 1;
+      }
+    }
+    i {
+      color: inherit; opacity: .3;
+    }
+  }
+}
+
+/*-------------------------------------------
+2. Body, Html
+-------------------------------------------*/
+
+body, html {
+  margin: 0; padding: 0; font-family: 'Poppins', sans-serif; font-weight: 400; position: relative;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.5rem; overflow-x: hidden; line-height: 2.7rem;
+  &.mfp-zoom-out-cur {
+    overflow-y: hidden;
+  }
+  &.pace-done {
+    &.has-loading-screen {
+      .loading-screen, .hero__link, .navbar  {
+        transition-delay: 1s;
+      }
+      .loading-screen {
+        opacity: 0;
+      }
+      .hero__link, .navbar {
+        opacity: 1;
+      }
+    }
+  }
+  &.has-loading-screen {
+    .navbar {
+      opacity: 0;
+    }
+    .hero__link {
+      opacity: 0; transition: 3s;
+    }
+    h1 {
+      .hero__title {
+        color: rgba(#fff, 0); position: relative;
+        &:before {
+          background-color: $color-white; width:0; height: 100%; position: absolute; top: 0; content: ""; z-index: 0; transition: .6s cubic-bezier(.25,.1,0,1.01); transition-delay: .3s;
+        }
+        &.in {
+          color: rgba(#fff, 1); transition-delay: .7s;
+          &:before {
+            animation: animation-h1-bg-reveal-in 1s cubic-bezier(.25,.1,0,1.01) forwards; animation-delay: .3s;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes animation-h1-bg-reveal-in {
+  0% {
+    left: 0;
+    width: 0;
+  }
+  40% {
+    left: 0;
+    width: 100%;
+  }
+  50% {
+    right: 0;
+  }
+  51% {
+    right: 0;
+    width: 100%;
+  }
+  100% {
+    right: 0;
+    width: 0;
+  }
+}
+
+@keyframes animation-h1-bg-reveal-out {
+  0% {
+    right: 0;
+    width: 0;
+  }
+  10% {
+    right: 0;
+    width: 100%;
+  }
+  20% {
+    right: 0;
+    width: 100%;
+  }
+  100% {
+    left: 0;
+    width: 100%;
+  }
+}
+
+/*-------------------------------------------
+3. DL, UL Lists
+-------------------------------------------*/
+
+dl {
+  margin-bottom: 1rem;
+  dt {
+    float: left; padding: .2rem 0;
+  }
+  dd {
+    text-align: right; padding: .2rem 0;
+  }
+}
+
+ul, ol {
+  line-height: 3.2rem;
+}
+
+/*-------------------------------------------
+4. Headings
+-------------------------------------------*/
+
+h1 {
+  font-size: 6rem; margin-bottom: 3rem; margin-top: 1rem; font-weight: 600; line-height: 8rem;
+}
+h2 {
+  font-size: 3.6rem; margin-bottom: 4rem; padding-top: 1rem; font-weight: 600;
+}
+h3 {
+  font-size: 3rem; margin-bottom: 2rem;
+}
+h4 {
+  font-size: 2rem; font-weight: 600; margin-bottom: 1.8rem;
+}
+h5 {
+  margin-bottom: 1rem; font-size: 1.6rem; font-weight: 600;
+}
+
+hr {
+  border-top-width: .2rem; margin-top: 3rem; margin-bottom: 3rem; position: relative;
+  &.skewed {
+    transform: rotate(-2deg);
+  }
+  &.hr-skew-left {
+    border: none; height: 7rem;
+    &:before {
+      background-image: url("../../assets/img/hr-skew-left.png"); background-repeat: no-repeat; background-size: contain; background-position: top left; content: ""; height: 100%; left: 0; position: absolute; pointer-events: none; top: 0; width: 100%; z-index: 1;
+    }
+  }
+  &.hr-skew-right {
+    border: none; height: 7rem;
+    &:before {
+      background-image: url("../../assets/img/bg-skew-up-right.png"); background-repeat: no-repeat; background-size: contain; background-position: top left; content: ""; height: 100%; left: 0; position: absolute; pointer-events: none; top: 0; width: 100%; z-index: 1;
+    }
+  }
+  &.hr-white {
+    border-top-color: $color-white;
+  }
+}
+mark, .mark {
+  background-color: #ffdc23;
+}
+
+p {
+  opacity: .65; margin-bottom: 3rem;
+}
+
+section {
+  position: relative;
+}
+
